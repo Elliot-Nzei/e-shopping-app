@@ -1,0 +1,120 @@
+### **MarketSphere UI Blueprint (v1.1) — Buyer‑Centric, Jumia‑Inspired**
+
+---
+
+## 0. Global Design Principles
+
+* **Warm palette** (sunny orange accents, charcoal text) + lots of white space for product focus.
+* **Soft‑edge cards** & 8 px grid—everything feels tappable.
+* **Universal Top Nav** on every page:
+
+  * **Left (logo)** → always returns Home.
+  * **Center (elastic search bar)** with voice & image icons.
+  * **Right (cart icon)** showing live item count.
+  * **Adaptive height:** 64 px on laptop, 56 px on phone.
+
+---
+
+## 1. Device Modes
+
+| Feature       | **Laptop / Desktop (≥ 1024 px)**         | **Phone (< 768 px)**                                                  |
+| ------------- | ---------------------------------------- | --------------------------------------------------------------------- |
+| Navigation    | Vertical sidebar (collapsible) + top nav | Bottom dock with 5 icons (Home, Categories, Shops, Wishlist, Account) |
+| Card Grid     | 3‑4 columns masonry                      | 2 columns grid (edge‑to‑edge)                                         |
+| Hover States  | Image zoom, quick‑add pop‑ups            | Long‑press reveals options                                            |
+| Filters       | Permanent left panel                     | Slide‑up modal sheet                                                  |
+| Hero Carousel | Panoramic 1200 × 400 px                  | Full‑width 16:9 swipe cards                                           |
+| Performance   | Pre‑fetch on hover                       | Aggressive lazy‑load & skeletons                                      |
+
+---
+
+## 2. Home / User Dashboard
+
+### Laptop
+
+1. **Hero Carousel** (auto‑rotate, arrow controls).
+2. **Quick‑Pick Category Row** — six icon chips with subtle hover lift.
+3. **Smart Feed** (masonry):
+
+   * “Flash Deals” row with countdown badge.
+   * “Recommended for You” (AI personalization).
+4. **Side Panel Widgets**:
+
+   * Mini voucher wallet.
+   * Live chat bubble.
+
+### Phone
+
+1. **Swipe Hero Cards** (dot indicators).
+2. **Quick‑Pick Chips** (horizontal scroll).
+3. **Stacked Feed** — Flash Deals → Recommended → Recently Viewed.
+4. **“Back to Top” bubble** appears after 6 × screen scrolls.
+
+---
+
+## 3. Categories Page
+
+### Laptop
+
+* **Left Sidebar Tree** (main → subcategories).
+* **Main Grid** updates instantly via Ajax—products fade in.
+* Filter strip (price slider, brand checkboxes) pinned under top nav.
+
+### Phone
+
+* **Filter Button** tops grid; opens full‑height modal with category tree & sliders.
+* Grid auto‑switches 2‑column → 1‑column in very narrow windows.
+* Sticky **“Sort” pill** (dropdown: Popularity, Price ↑/↓, Newest).
+
+---
+
+## 4. Shops (“Market Street”)
+
+### Laptop
+
+* **Map‑in‑Sidebar**: optional toggle shows Delta/Edo pins.
+* **Shop Cards** (logo, rating, “Follow” button) in 3‑up grid.
+* **Top Filter Bar**: Shop Type, Rating, Delivery Speed.
+
+### Phone
+
+* **Search‑first layout**: top search field “Find a shop…”.
+* **Shop List** vertical cards with follow heart, category chips.
+* **Filter Drawer** slides from right; map hidden by default to save data.
+
+---
+
+## 5. Account Page
+
+### Laptop
+
+* **Left Vertical Tabs**
+
+  * Overview
+  * Orders
+  * Wishlist
+  * Ratings & Reviews
+  * Settings
+* Main pane changes with fade.
+* **Header Banner**: avatar, “Welcome \[name]!” and wallet balance.
+
+### Phone
+
+* **Accordion Sections**: tap to expand Orders, Wishlist, etc.
+* **Top of page**: avatar circle, edit icon.
+* **Danger Zone** collapsible panel at bottom for Delete Account & Logout.
+
+---
+
+## 6. Micros & Interactions
+
+* **Flash Sale Ticker** (sticky footer strip) shows time left & “Join Now” on both devices.
+* **Voucher “Spin‑to‑Win” Wheel** (occasionally triggered, respects dismissal).
+* **Voice / Camera Search** icons live in the top nav search field.
+* **Haptic micro‑feedback** on bottom‑dock taps (mobile).
+* **Skeleton loaders** ensure perceived speed on slow networks.
+* **High‑Contrast toggle** & font‑size slider in Settings > Accessibility.
+
+---
+
+**Result:** A dashboard that keeps Jumia’s strengths—prominent deals, deep category drilling, persistent cart—while injecting modern micro‑interactions, adaptive layouts, and clear mobile ergonomics so buyers feel at home and in control on any screen.

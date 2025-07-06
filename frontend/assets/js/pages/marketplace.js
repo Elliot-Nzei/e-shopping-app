@@ -7,11 +7,13 @@
 import { getProducts } from '../core/api.js';
 import { showToast } from '../components/toast.js';
 import { renderPagination } from '../components/pagination.js';
+import { navigateTo } from '../core/router.js';
 
 const marketplaceProductsGrid = document.getElementById('marketplace-products-grid');
 const marketplacePaginationContainer = document.getElementById('marketplace-pagination');
 
 const marketplaceSearchInput = document.getElementById('marketplace-search-input');
+const searchButton = document.querySelector('.search-bar .btn');
 const categoryList = document.getElementById('category-list');
 const priceRangeInput = document.getElementById('price-range');
 const priceRangeDisplay = document.getElementById('price-range-display');
@@ -35,6 +37,9 @@ export async function initMarketplacePage() {
 function setupEventListeners() {
     if (marketplaceSearchInput) {
         marketplaceSearchInput.addEventListener('input', () => loadMarketplaceProducts()); // Debounce in real app
+    }
+    if (searchButton) {
+        searchButton.addEventListener('click', () => loadMarketplaceProducts());
     }
     if (categoryList) {
         categoryList.addEventListener('click', (event) => {
@@ -82,7 +87,7 @@ function setupEventListeners() {
                 showToast('Product added to wishlist!', 'info');
             } else if (productCard) {
                 // Click product card to go to product detail page
-                // navigateTo(`/public/product-detail.html?id=${productId}`);
+                navigateTo(`/public/product-detail.html?id=${productId}`);
                 console.log(`Navigate to product detail for ID: ${productId}`);
             }
         });

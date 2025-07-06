@@ -7,12 +7,13 @@
 import { showToast } from '../../components/toast.js';
 import { renderPagination } from '../../components/pagination.js';
 import { serializeForm, validateForm } from '../../components/forms.js';
-// import { getShopDetails, getShopProducts, getShopReviews, followShop, submitShopContactForm } from '../../core/api.js'; // Assuming these API functions exist
+import { navigateTo } from '../../core/router.js';
 
 const publicShopProductsGrid = document.getElementById('public-shop-products-grid');
 const publicShopProductsPagination = document.getElementById('public-shop-products-pagination');
-const publicShopNavTabs = document.querySelector('.public-shop-nav-tabs');
+const publicShopNavTabs = document.getElementById('public-shop-nav-tabs');
 const publicShopContactForm = document.getElementById('public-shop-contact-form');
+const followShopBtn = document.getElementById('follow-shop-btn');
 
 /**
  * Initializes the public shop profile page.
@@ -110,13 +111,31 @@ function setupEventListeners(shopId) {
         });
     }
 
-    const followShopBtn = document.querySelector('.follow-shop-btn');
     if (followShopBtn) {
         followShopBtn.addEventListener('click', () => handleFollowShop(shopId));
     }
 
     if (publicShopContactForm) {
         publicShopContactForm.addEventListener('submit', (event) => handleShopContactFormSubmit(event, shopId));
+    }
+
+    if (publicShopProductsGrid) {
+        publicShopProductsGrid.addEventListener('click', (event) => {
+            const target = event.target;
+            const productCard = target.closest('.product-card');
+            if (!productCard) return;
+
+            const productId = productCard.dataset.productId; // Assuming data-product-id attribute
+
+            if (target.classList.contains('add-to-cart-btn')) {
+                console.log(`Add to cart: ${productId}`);
+                showToast('Product added to cart!', 'success');
+            } else if (productCard) {
+                // Click product card to go to product detail page
+                navigateTo(`/public/product-detail.html?id=${productId}`);
+                console.log(`Navigate to product detail for ID: ${productId}`);
+            }
+        });
     }
 }
 
@@ -173,7 +192,7 @@ function renderShopProductsGrid(products) {
     products.forEach(product => {
         const productCard = document.createElement('div');
         productCard.className = 'product-card';
-        productCard.dataset.productId = product.id;
+        productCard.dataset.productId = product.id; // Store product ID
         productCard.innerHTML = `
             <img src="${product.imageUrl}" alt="${product.name}" class="product-image">
             <div class="product-info">

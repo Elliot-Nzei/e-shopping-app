@@ -9,43 +9,37 @@ import { showToast } from '../components/toast.js';
 import { renderPagination } from '../components/pagination.js';
 import { navigateTo } from '../core/router.js';
 
+const heroCtaButton = document.querySelector('.hero-cta');
+const hamburgerMenu = document.querySelector('.hamburger-menu');
+const navbarNav = document.querySelector('.navbar-nav');
+
 /**
  * Initializes the home page by loading products and setting up event listeners.
  */
 export async function initHomePage() {
     console.log('Initializing Home Page...');
-    setupHeroCta();
-    setupMobileMenuToggle();
+    setupEventListeners();
     // await loadProducts(); // Uncomment if products are displayed on the home page
     // setupLocationSelector(); // Uncomment if location selector is on home page
     // TODO: Add more initialization logic for hero section, featured categories, etc.
 }
 
 /**
- * Handles the click event for the hero section's Call-to-Action button.
+ * Sets up event listeners for interactive elements on the home page.
  */
-function setupHeroCta() {
-    const heroCtaButton = document.querySelector('.hero-cta');
+function setupEventListeners() {
     if (heroCtaButton) {
         heroCtaButton.addEventListener('click', () => {
             const targetPage = heroCtaButton.dataset.target || '/auth/register.html';
             navigateTo(targetPage);
         });
     }
-}
 
-/**
- * Initializes the mobile menu toggle (hamburger) with ARIA roles for accessibility.
- */
-function setupMobileMenuToggle() {
-    const hamburger = document.querySelector('.hamburger-menu');
-    const navMenu = document.querySelector('.navbar-nav');
-
-    if (hamburger && navMenu) {
-        hamburger.addEventListener('click', () => {
-            const isExpanded = hamburger.getAttribute('aria-expanded') === 'true' || false;
-            hamburger.setAttribute('aria-expanded', !isExpanded);
-            navMenu.classList.toggle('active');
+    if (hamburgerMenu && navbarNav) {
+        hamburgerMenu.addEventListener('click', () => {
+            const isExpanded = hamburgerMenu.getAttribute('aria-expanded') === 'true' || false;
+            hamburgerMenu.setAttribute('aria-expanded', !isExpanded);
+            navbarNav.classList.toggle('active');
 
             // Add/remove mobile-only links dynamically
             if (!isExpanded) {
@@ -61,11 +55,11 @@ function setupMobileMenuToggle() {
                     a.textContent = link.text;
                     a.setAttribute('data-internal-link', '');
                     li.appendChild(a);
-                    navMenu.appendChild(li);
+                    navbarNav.appendChild(li);
                 });
             } else {
                 // Menu is closing, remove mobile-specific links
-                navMenu.querySelectorAll('li').forEach(li => {
+                navbarNav.querySelectorAll('li').forEach(li => {
                     const a = li.querySelector('a');
                     if (a && (a.textContent === 'About' || a.textContent === 'Contact')) {
                         li.remove();
@@ -74,6 +68,14 @@ function setupMobileMenuToggle() {
             }
         });
     }
+
+    // Example: Click handler for info cards (if they navigate)
+    document.querySelectorAll('.info-card a').forEach(cardLink => {
+        cardLink.addEventListener('click', (event) => {
+            event.preventDefault();
+            navigateTo(cardLink.getAttribute('href'));
+        });
+    });
 }
 
 /**

@@ -14,10 +14,10 @@
         <div class="product-detail-container container">
             <div class="product-gallery">
                 <img src="https://via.placeholder.com/600x400?text=Product+Image" alt="Product Main Image" id="main-product-image" class="main-product-image">
-                <div class="thumbnail-gallery">
-                    <img src="https://via.placeholder.com/100x70?text=Thumb1" alt="Thumbnail 1" class="thumbnail-image active">
-                    <img src="https://via.placeholder.com/100x70?text=Thumb2" alt="Thumbnail 2" class="thumbnail-image">
-                    <img src="https://via.placeholder.com/100x70?text=Thumb3" alt="Thumbnail 3" class="thumbnail-image">
+                <div class="thumbnail-gallery" id="thumbnail-gallery">
+                    <img src="https://via.placeholder.com/100x70?text=Thumb1" alt="Thumbnail 1" class="thumbnail-image active" data-full-image="https://via.placeholder.com/600x400?text=Product+Image+1">
+                    <img src="https://via.placeholder.com/100x70?text=Thumb2" alt="Thumbnail 2" class="thumbnail-image" data-full-image="https://via.placeholder.com/600x400?text=Product+Image+2">
+                    <img src="https://via.placeholder.com/100x70?text=Thumb3" alt="Thumbnail 3" class="thumbnail-image" data-full-image="https://via.placeholder.com/600x400?text=Product+Image+3">
                 </div>
             </div>
 
@@ -27,19 +27,19 @@
                 <p class="product-stock" id="product-stock">Availability: In Stock</p>
 
                 <div class="seller-info">
-                    <p>Sold by: <a href="/frontend/pages/public/shop-profile.html" id="seller-shop-link" data-internal-link>Shop Name</a></p>
-                    <div class="product-ratings">
+                    <p>Sold by: <a href="#" id="seller-shop-link" data-internal-link>Shop Name</a></p>
+                    <div class="product-ratings" id="product-ratings">
                         <!-- Star ratings will go here -->
-                        <span>(0 Reviews)</span>
+                        <span>(<span id="reviews-count">0</span> Reviews)</span>
                     </div>
                 </div>
 
                 <div class="product-actions">
-                    <button class="btn btn-primary add-to-cart-btn">Add to Cart</button>
-                    <button class="btn btn-secondary add-to-wishlist-btn">Add to Wishlist</button>
+                    <button class="btn btn-primary add-to-cart-btn" id="add-to-cart-btn">Add to Cart</button>
+                    <button class="btn btn-secondary add-to-wishlist-btn" id="add-to-wishlist-btn">Add to Wishlist</button>
                 </div>
 
-                <div class="product-tabs">
+                <div class="product-tabs" id="product-tabs">
                     <button class="tab-button active" data-tab="description">Description</button>
                     <button class="tab-button" data-tab="specifications">Specifications</button>
                     <button class="tab-button" data-tab="features">Features</button>
@@ -48,18 +48,18 @@
 
                 <div id="description" class="tab-content active">
                     <h3>Product Description</h3>
-                    <p id="product-description">Detailed description of the product.</p>
+                    <p id="product-description-content">Detailed description of the product.</p>
                 </div>
                 <div id="specifications" class="tab-content">
                     <h3>Specifications</h3>
-                    <ul id="product-specifications">
+                    <ul id="product-specifications-list">
                         <li>Item 1: Detail 1</li>
                         <li>Item 2: Detail 2</li>
                     </ul>
                 </div>
                 <div id="features" class="tab-content">
                     <h3>Features</h3>
-                    <ul id="product-features">
+                    <ul id="product-features-list">
                         <li>Feature A</li>
                         <li>Feature B</li>
                     </ul>
@@ -84,6 +84,6 @@
     </div>
 
     <script type="module" src="../../main.js"></script>
-    <script type="module" src="../../assets/js/pages/product-detail.js"></script>
+    <script type="module" src="../../assets/js/pages/public/product-detail.js"></script>
 </body>
 </html>

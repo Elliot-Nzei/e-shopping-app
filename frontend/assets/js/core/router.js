@@ -9,6 +9,7 @@ import { initLoginPage } from '../pages/auth/login.js';
 import { initRegisterPage } from '../pages/auth/register.js';
 import { initForgotPasswordPage } from '../pages/auth/forgot-password.js';
 import { initVerifyEmailPage } from '../pages/auth/verify-email.js';
+import { initUserDashboardPage } from '../pages/user/dashboard.js';
 import { initProfilePage } from '../pages/user/profile.js';
 import { initOrdersPage } from '../pages/user/orders.js';
 import { initWishlistPage } from '../pages/user/wishlist.js';
@@ -25,6 +26,12 @@ import { initAdminCategoriesPage } from '../pages/admin/categories.js';
 import { initAdminProductsPage } from '../pages/admin/products.js';
 import { initAdminOrdersPage } from '../pages/admin/orders.js';
 import { initAdminAnalyticsPage } from '../pages/admin/analytics.js';
+import { initMarketplacePage } from '../pages/public/marketplace.js';
+import { initProductDetailPage } from '../pages/public/product-detail.js';
+import { initPublicShopProfilePage } from '../pages/public/shop-profile.js';
+import { initAboutPage } from '../pages/public/about.js';
+import { initContactPage } from '../pages/public/contact.js';
+import { initPrivacyPolicyPage } from '../pages/privacy-policy.js';
 
 /**
  * Navigates to a specified path within the application.
@@ -48,6 +55,7 @@ const routes = {
     '/auth/register.html': { page: 'auth/register.html', init: initRegisterPage },
     '/auth/forgot-password.html': { page: 'auth/forgot-password.html', init: initForgotPasswordPage },
     '/auth/verify-email.html': { page: 'auth/verify-email.html', init: initVerifyEmailPage },
+    '/user/dashboard.html': { page: 'user/dashboard.html', init: initUserDashboardPage },
     '/user/profile.html': { page: 'user/profile.html', init: initProfilePage },
     '/user/orders.html': { page: 'user/orders.html', init: initOrdersPage },
     '/user/wishlist.html': { page: 'user/wishlist.html', init: initWishlistPage },
@@ -64,6 +72,12 @@ const routes = {
     '/admin/orders.html': { page: 'admin/orders.html', init: initAdminOrdersPage },
     '/admin/categories.html': { page: 'admin/categories.html', init: initAdminCategoriesPage },
     '/admin/analytics.html': { page: 'admin/analytics.html', init: initAdminAnalyticsPage },
+    '/public/marketplace.html': { page: 'public/marketplace.html', init: initMarketplacePage },
+    '/public/product-detail.html': { page: 'public/product-detail.html', init: initProductDetailPage },
+    '/public/shop-profile.html': { page: 'public/shop-profile.html', init: initPublicShopProfilePage },
+    '/public/about.html': { page: 'public/about.html', init: initAboutPage },
+    '/public/contact.html': { page: 'public/contact.html', init: initContactPage },
+    '/public/privacy-policy.html': { page: 'privacy-policy.html', init: initPrivacyPolicyPage },
     // Add more routes here
     '404': { page: '404.html', init: null } // Fallback for unknown routes
 };

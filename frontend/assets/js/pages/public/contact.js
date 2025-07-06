@@ -4,10 +4,10 @@
  * This includes form validation and submission.
  */
 
-import { showToast } from '../components/toast.js';
-import { serializeForm, validateForm, initFormSubmission } from '../components/forms.js';
-import { isValidEmail } from '../core/utils.js';
-// import { submitContactForm } from '../core/api.js'; // Assuming this API function exists
+import { showToast } from '../../components/toast.js';
+import { serializeForm, validateForm } from '../../components/forms.js';
+import { isValidEmail } from '../../core/utils.js';
+// import { submitContactForm } from '../../core/api.js'; // Assuming this API function exists
 
 const contactForm = document.getElementById('contact-form');
 

@@ -20,9 +20,9 @@ body {
     display: none; /* Hidden by default on mobile */
     flex-direction: column;
     width: 100%;
-    background-color: #ffffff;
+    background-color: var(--card-background);
     position: absolute;
-    top: 60px; /* Adjust based on navbar height */
+    top: 56px; /* Adaptive height: 56px on phone */
     left: 0;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     padding: 10px 0;
@@ -118,6 +118,113 @@ body {
     gap: 5px;
 }
 
+/* User Dashboard Responsive */
+.dashboard-quick-links {
+    grid-template-columns: 1fr; /* Stack quick links */
+}
+
+.recent-orders-section .data-table {
+    display: block; /* Make table scrollable */
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.promotions-grid {
+    grid-template-columns: 1fr; /* Stack promotion banners */
+}
+
+.promotion-banner .promo-content {
+    position: static;
+    background-color: rgba(0, 0, 0, 0.7); /* Darker background for readability */
+    padding: 10px;
+}
+
+/* Public Product Detail Responsive */
+.product-detail-container {
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+}
+
+.product-gallery {
+    flex: none;
+    width: 100%;
+    padding: 15px;
+}
+
+.main-product-image {
+    height: 250px;
+}
+
+.product-info-section {
+    padding: 20px;
+}
+
+.product-info-section h1 {
+    font-size: 2em;
+}
+
+.product-actions {
+    flex-direction: column;
+}
+
+.product-tabs {
+    flex-wrap: wrap;
+}
+
+.product-tabs .tab-button {
+    flex-grow: 1;
+    text-align: center;
+    padding: 8px 10px;
+    font-size: 0.9em;
+}
+
+/* Public Shop Profile Responsive */
+.public-shop-profile-container {
+    padding: 20px;
+}
+
+.public-shop-nav-tabs {
+    flex-wrap: wrap;
+}
+
+.public-shop-nav-tabs .tab-button {
+    flex-grow: 1;
+    text-align: center;
+    padding: 8px 10px;
+    font-size: 0.9em;
+}
+
+/* Public About Us Responsive */
+.page-header .container {
+    flex-direction: column;
+    gap: 10px;
+}
+
+.page-header .main-nav ul {
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.hero-section-small {
+    height: 180px;
+}
+
+.hero-content-small h1 {
+    font-size: 2.2em;
+}
+
+.content-section {
+    padding: 20px;
+}
+
+/* Public Contact Responsive */
+.contact-section {
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+}
+
 /* --- Tablet Styles (768px - 1023px) --- */
 @media (min-width: 768px) and (max-width: 1023px) {
     body {
@@ -155,7 +262,7 @@ body {
     }
 
     .profile-sidebar {
-        width: 200px; /* Adjust width */
+        flex: 0 0 200px; /* Adjust width */
     }
 
     /* Orders Page Responsive */
@@ -184,6 +291,63 @@ body {
     }
 
     .product-actions {
+        flex-direction: row;
+    }
+
+    /* User Dashboard Responsive */
+    .dashboard-quick-links {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns for quick links */
+    }
+
+    .promotions-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+
+    /* Public Product Detail Responsive */
+    .product-detail-container {
+        flex-direction: row;
+    }
+
+    .product-gallery {
+        flex: 0 0 300px;
+    }
+
+    .main-product-image {
+        height: 300px;
+    }
+
+    .product-info-section h1 {
+        font-size: 2.2em;
+    }
+
+    /* Public Shop Profile Responsive */
+    .public-shop-nav-tabs {
+        flex-wrap: nowrap;
+    }
+
+    .public-shop-nav-tabs .tab-button {
+        flex-grow: unset;
+    }
+
+    /* Public About Us Responsive */
+    .page-header .container {
+        flex-direction: row;
+    }
+
+    .page-header .main-nav ul {
+        flex-wrap: nowrap;
+    }
+
+    .hero-section-small {
+        height: 200px;
+    }
+
+    .hero-content-small h1 {
+        font-size: 2.5em;
+    }
+
+    /* Public Contact Responsive */
+    .contact-section {
         flex-direction: row;
     }
 }
@@ -260,6 +424,69 @@ body {
     }
 
     .product-actions {
+        flex-direction: row;
+    }
+
+    /* User Dashboard Responsive */
+    .dashboard-quick-links {
+        grid-template-columns: repeat(4, 1fr); /* 4 columns for quick links */
+    }
+
+    .recent-orders-section .data-table {
+        display: table; /* Revert to table display */
+        overflow-x: visible;
+        white-space: normal;
+    }
+
+    .promotions-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns for promotion banners */
+    }
+
+    /* Public Product Detail Responsive */
+    .product-detail-container {
+        flex-direction: row;
+    }
+
+    .product-gallery {
+        flex: 0 0 450px;
+    }
+
+    .main-product-image {
+        height: 350px;
+    }
+
+    .product-info-section h1 {
+        font-size: 2.5em;
+    }
+
+    /* Public Shop Profile Responsive */
+    .public-shop-nav-tabs {
+        flex-wrap: nowrap;
+    }
+
+    .public-shop-nav-tabs .tab-button {
+        flex-grow: unset;
+    }
+
+    /* Public About Us Responsive */
+    .page-header .container {
+        flex-direction: row;
+    }
+
+    .page-header .main-nav ul {
+        flex-wrap: nowrap;
+    }
+
+    .hero-section-small {
+        height: 250px;
+    }
+
+    .hero-content-small h1 {
+        font-size: 3em;
+    }
+
+    /* Public Contact Responsive */
+    .contact-section {
         flex-direction: row;
     }
 }
