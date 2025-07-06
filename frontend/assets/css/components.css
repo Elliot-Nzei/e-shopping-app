@@ -1,0 +1,313 @@
+/*
+ * components.css
+ * UI component specific styles for the Local Shopping Web-App.
+ * This file contains styles for reusable UI elements like buttons, forms, cards, modals, etc.
+ */
+
+/* --- Buttons --- */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+    transform: translateY(-1px);
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+}
+
+.btn-block {
+    width: 100%;
+    display: block;
+    margin-top: 15px;
+}
+
+/* --- Forms --- */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"],
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Ensures padding doesn't increase width */
+    font-size: 1em;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.password-input-group {
+    position: relative;
+}
+
+.password-input-group input {
+    padding-right: 40px; /* Make space for the toggle button */
+}
+
+.password-input-group .toggle-password {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #666;
+    font-size: 0.9em;
+    padding: 5px;
+}
+
+.password-input-group .toggle-password::before {
+    content: 'Show'; /* Default text */
+}
+
+.password-input-group .toggle-password.active::before {
+    content: 'Hide';
+}
+
+.forgot-password-link {
+    display: block;
+    text-align: right;
+    font-size: 0.9em;
+    margin-top: 5px;
+}
+
+.auth-switch {
+    margin-top: 20px;
+    font-size: 0.95em;
+    color: #666;
+}
+
+.auth-switch a {
+    font-weight: bold;
+}
+
+.social-login-options {
+    margin-top: 30px;
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+}
+
+.social-login-options p {
+    margin-bottom: 15px;
+    color: #777;
+}
+
+.social-btn {
+    margin-bottom: 10px; /* Space between social buttons */
+}
+
+/* --- Cards --- */
+.card {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.card-header {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+/* --- Modals --- */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+    max-width: 500px;
+    border-radius: 8px;
+    position: relative;
+}
+
+.close-button {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* --- Navigation --- */
+/* Moved to main.css for global navbar styling */
+
+/* --- Toast Notifications --- */
+/* Styles are dynamically added by toast.js, but can be defined here */
+
+/* --- Pagination --- */
+.pagination {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+    justify-content: center;
+}
+.page-item {
+    margin: 0 5px;
+}
+.page-link {
+    display: block;
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    color: #007bff;
+    text-decoration: none;
+}
+.page-link:hover {
+    background-color: #e9ecef;
+}
+.page-item.active .page-link {
+    background-color: #007bff;
+    color: white;
+    border-color: #007bff;
+}
+.page-item.disabled .page-link {
+    color: #6c757d;
+    pointer-events: none;
+    background-color: #e9ecef;
+}
+
+/* --- Form Validation Feedback --- */
+.form-group .error-message {
+    color: #dc3545;
+    font-size: 0.85em;
+    margin-top: 5px;
+    display: none; /* Hidden by default */
+}
+
+.form-group.invalid input,
+.form-group.invalid select,
+.form-group.invalid textarea {
+    border-color: #dc3545;
+}
+
+.form-group.invalid .error-message {
+    display: block;
+}
+
+/* Multi-step form progress indicator */
+.progress-indicator {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    padding: 0 20px;
+}
+
+.progress-step {
+    flex: 1;
+    text-align: center;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #ccc;
+    color: #ccc;
+    font-weight: bold;
+    position: relative;
+}
+
+.progress-step.active {
+    color: #007bff;
+    border-color: #007bff;
+}
+
+.progress-step.completed {
+    color: #28a745;
+    border-color: #28a745;
+}
+
+.progress-step span {
+    display: block;
+    margin-top: 5px;
+    font-size: 0.9em;
+}
+
+.progress-step::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 10px;
+    height: 10px;
+    background-color: #ccc;
+    border-radius: 50%;
+}
+
+.progress-step.active::after {
+    background-color: #007bff;
+}
+
+.progress-step.completed::after {
+    background-color: #28a745;
+}
+
+.checkbox-group label {
+    display: inline-block;
+    margin-right: 15px;
+    font-weight: normal;
+}
+
+.checkbox-group input[type="checkbox"] {
+    margin-right: 5px;
+}

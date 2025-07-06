@@ -1,0 +1,276 @@
+/*
+ * responsive.css
+ * Media queries and responsive design rules for the Local Shopping Web-App.
+ * This file ensures the application adapts to different screen sizes and devices.
+ */
+
+/* --- Mobile Styles (Default: < 768px) --- */
+/* Layout Strategy: Stack, drawer nav, touch-optimized */
+
+body {
+    font-size: 14px;
+}
+
+.navbar .container {
+    flex-direction: row; /* Keep logo and hamburger on one line */
+    justify-content: space-between;
+}
+
+.navbar-nav {
+    display: none; /* Hidden by default on mobile */
+    flex-direction: column;
+    width: 100%;
+    background-color: #ffffff;
+    position: absolute;
+    top: 60px; /* Adjust based on navbar height */
+    left: 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 10px 0;
+}
+
+.navbar-nav.active {
+    display: flex; /* Show when active */
+}
+
+.navbar-nav li {
+    text-align: center;
+}
+
+.navbar-nav a {
+    padding: 10px 15px;
+}
+
+.hamburger-menu {
+    display: block; /* Show hamburger on mobile */
+}
+
+.info-section {
+    grid-template-columns: 1fr; /* Stack cards on mobile */
+    padding: 30px 15px;
+}
+
+.hero-content h1 {
+    font-size: 2em;
+}
+
+.hero-content p {
+    font-size: 1em;
+}
+
+.footer .container {
+    flex-direction: column;
+}
+
+/* Profile Page Responsive */
+.profile-page-container {
+    flex-direction: column; /* Stack sidebar and main content */
+    padding: 20px;
+}
+
+.profile-sidebar {
+    flex: none; /* Remove fixed width */
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.profile-main-content {
+    padding: 20px;
+}
+
+/* Orders Page Responsive */
+.filters-sort-section {
+    flex-direction: column;
+    gap: 10px;
+}
+
+.filters-sort-section .form-group {
+    min-width: unset;
+    width: 100%;
+}
+
+.orders-list-cards {
+    grid-template-columns: 1fr; /* Single column for order cards */
+}
+
+/* Wishlist Page Responsive */
+.product-grid {
+    grid-template-columns: 1fr; /* Single column for product cards on mobile */
+}
+
+.product-card {
+    flex-direction: row; /* Horizontal layout for mobile wishlist cards */
+    align-items: center;
+}
+
+.product-image {
+    width: 100px;
+    height: 100px;
+    flex-shrink: 0;
+    margin-right: 15px;
+}
+
+.product-info {
+    flex-grow: 1;
+}
+
+.product-actions {
+    flex-direction: column;
+    gap: 5px;
+}
+
+/* --- Tablet Styles (768px - 1023px) --- */
+@media (min-width: 768px) and (max-width: 1023px) {
+    body {
+        font-size: 15px;
+    }
+
+    .navbar-nav {
+        display: flex; /* Show nav items on tablet */
+        flex-direction: row;
+        position: static;
+        box-shadow: none;
+        padding: 0;
+        width: auto;
+    }
+
+    .hamburger-menu {
+        display: none; /* Hide hamburger on tablet */
+    }
+
+    .info-section {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* 2-3 columns */
+    }
+
+    .hero-content h1 {
+        font-size: 2.8em;
+    }
+
+    .hero-content p {
+        font-size: 1.2em;
+    }
+
+    /* Profile Page Responsive */
+    .profile-page-container {
+        flex-direction: row; /* Side-by-side */
+    }
+
+    .profile-sidebar {
+        width: 200px; /* Adjust width */
+    }
+
+    /* Orders Page Responsive */
+    .filters-sort-section {
+        flex-direction: row;
+    }
+
+    .orders-list-cards {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* 2 columns */
+    }
+
+    /* Wishlist Page Responsive */
+    .product-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* 2 columns */
+    }
+
+    .product-card {
+        flex-direction: column; /* Stack again */
+        align-items: stretch;
+    }
+
+    .product-image {
+        width: 100%;
+        height: 180px;
+        margin-right: 0;
+    }
+
+    .product-actions {
+        flex-direction: row;
+    }
+}
+
+/* --- Desktop Styles (1024px - 1439px) --- */
+@media (min-width: 1024px) {
+    body {
+        font-size: 16px;
+    }
+
+    .navbar-nav {
+        display: flex; /* Always show nav items on desktop */
+        flex-direction: row;
+        position: static;
+        box-shadow: none;
+        padding: 0;
+        width: auto;
+    }
+
+    .hamburger-menu {
+        display: none; /* Hide hamburger on desktop */
+    }
+
+    .info-section {
+        grid-template-columns: repeat(3, 1fr); /* 3 columns on desktop */
+    }
+
+    .hero-content h1 {
+        font-size: 3.5em;
+    }
+
+    .hero-content p {
+        font-size: 1.5em;
+    }
+
+    .footer .container {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    /* Profile Page Responsive */
+    .profile-page-container {
+        flex-direction: row;
+    }
+
+    .profile-sidebar {
+        flex: 0 0 250px;
+        width: auto;
+    }
+
+    /* Orders Page Responsive */
+    .filters-sort-section {
+        flex-direction: row;
+    }
+
+    .orders-list-cards {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+
+    /* Wishlist Page Responsive */
+    .product-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+
+    .product-card {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .product-image {
+        width: 100%;
+        height: 200px;
+        margin-right: 0;
+    }
+
+    .product-actions {
+        flex-direction: row;
+    }
+}
+
+/* --- Large Desktop Styles (>= 1440px) --- */
+@media (min-width: 1440px) {
+    .container {
+        max-width: 1300px; /* Wider containers for large screens */
+    }
+
+    body {
+        font-size: 17px;
+    }
+}

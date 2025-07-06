@@ -1,0 +1,45 @@
+/*
+ * themes.css
+ * Color themes for the Local Shopping Web-App.
+ * This file defines different color palettes that can be applied to the application.
+ */
+
+/* --- Default Theme (Light) --- */
+:root {
+    --primary-color: #007bff;
+    --secondary-color: #6c757d;
+    --background-color: #f8f9fa;
+    --text-color: #212529;
+    --border-color: #dee2e6;
+    --success-color: #28a745;
+    --error-color: #dc3545;
+    --warning-color: #ffc107;
+}
+
+/* --- Dark Theme (Example) --- */
+.theme-dark {
+    --primary-color: #66b3ff;
+    --secondary-color: #99a3ad;
+    --background-color: #343a40;
+    --text-color: #f8f9fa;
+    --border-color: #495057;
+    --success-color: #218838;
+    --error-color: #c82333;
+    --warning-color: #e0a800;
+}
+
+/* --- Custom Theme (Example) --- */
+.theme-custom {
+    --primary-color: #8a2be2; /* Blue Violet */
+    --secondary-color: #ff6347; /* Tomato */
+    --background-color: #f0f8ff; /* Alice Blue */
+    --text-color: #4b0082; /* Indigo */
+    --border-color: #dda0dd; /* Plum */
+}
+
+/* How to use:
+ * Apply a class like `theme-dark` or `theme-custom` to the <body> or a parent element.
+ * Use CSS variables in your components:
+ *   background-color: var(--background-color);
+ *   color: var(--text-color);
+ */

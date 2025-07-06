@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile - Local Shopping Web-App</title>
+    <link rel="stylesheet" href="../../assets/css/main.css">
+    <link rel="stylesheet" href="../../assets/css/components.css">
+    <link rel="stylesheet" href="../../assets/css/responsive.css">
+    <link rel="stylesheet" href="../../assets/css/themes.css">
+</head>
+<body>
+    <div id="app-content">
+        <!-- Content will be loaded here by router.js -->
+        <div class="profile-page-container container">
+            <aside class="profile-sidebar">
+                <div class="profile-avatar-section">
+                    <img id="profile-avatar-preview" src="https://via.placeholder.com/150" alt="User Avatar" class="avatar-preview">
+                    <input type="file" id="avatar-upload" accept="image/*" class="hidden">
+                    <label for="avatar-upload" class="btn btn-secondary btn-sm">Upload Avatar</label>
+                </div>
+                <h3 id="profile-username-display">John Doe</h3>
+                <div class="profile-stats">
+                    <p>Orders: <span id="orders-count">0</span></p>
+                    <p>Wishlist: <span id="wishlist-count">0</span></p>
+                </div>
+            </aside>
+
+            <main class="profile-main-content">
+                <h2>My Profile</h2>
+                <form id="profile-edit-form" class="profile-form">
+                    <div class="form-group">
+                        <label for="first_name">First Name</label>
+                        <input type="text" id="first_name" name="first_name" disabled>
+                    </div>
+                    <div class="form-group">
+                        <label for="last_name">Last Name</label>
+                        <input type="text" id="last_name" name="last_name" disabled>
+                    </div>
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" id="username" name="username" disabled>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" disabled>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" disabled>
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Address</label>
+                        <textarea id="address" name="address" rows="3" disabled></textarea>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" id="edit-profile-btn" class="btn btn-primary">Edit Profile</button>
+                        <button type="submit" id="save-profile-btn" class="btn btn-success hidden">Save Changes</button>
+                        <button type="button" id="cancel-edit-btn" class="btn btn-secondary hidden">Cancel</button>
+                    </div>
+                </form>
+            </main>
+        </div>
+    </div>
+
+    <script type="module" src="../../main.js"></script>
+    <script type="module" src="../../assets/js/pages/profile.js"></script>
+</body>
+</html>

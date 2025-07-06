@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Wishlist - Local Shopping Web-App</title>
+    <link rel="stylesheet" href="../../assets/css/main.css">
+    <link rel="stylesheet" href="../../assets/css/components.css">
+    <link rel="stylesheet" href="../../assets/css/responsive.css">
+    <link rel="stylesheet" href="../../assets/css/themes.css">
+</head>
+<body>
+    <div id="app-content">
+        <div class="wishlist-page-container container">
+            <h2>My Wishlist</h2>
+
+            <div id="wishlist-products-grid" class="product-grid">
+                <!-- Wishlist product cards will be loaded here by JavaScript -->
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/200" alt="Product Image" class="product-image">
+                    <div class="product-info">
+                        <h3>Product Name 1</h3>
+                        <p class="product-seller">Sold by: Shop A</p>
+                        <p class="product-price">₦15,000</p>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-sm add-to-cart-btn">Add to Cart</button>
+                            <button class="btn btn-secondary btn-sm remove-from-wishlist-btn">Remove</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/200" alt="Product Image" class="product-image">
+                    <div class="product-info">
+                        <h3>Product Name 2</h3>
+                        <p class="product-seller">Sold by: Shop B</p>
+                        <p class="product-price">₦25,000</p>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-sm add-to-cart-btn">Add to Cart</button>
+                            <button class="btn btn-secondary btn-sm remove-from-wishlist-btn">Remove</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="wishlist-pagination" class="pagination-container"></div>
+
+        </div>
+    </div>
+
+    <script type="module" src="../../main.js"></script>
+    <script type="module" src="../../assets/js/pages/wishlist.js"></script>
+</body>
+</html>

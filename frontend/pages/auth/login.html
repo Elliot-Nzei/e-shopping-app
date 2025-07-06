@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Local Shopping Web-App</title>
+    <link rel="stylesheet" href="../../assets/css/main.css">
+    <link rel="stylesheet" href="../../assets/css/components.css">
+    <link rel="stylesheet" href="../../assets/css/responsive.css">
+    <link rel="stylesheet" href="../../assets/css/themes.css">
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-card">
+            <h2>Login to Your Account</h2>
+            <form id="loginForm" class="auth-form">
+                <div class="form-group">
+                    <label for="email">Email or Username</label>
+                    <input type="text" id="email" name="email" placeholder="Enter your email or username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <div class="password-input-group">
+                        <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                        <button type="button" class="toggle-password" aria-label="Show password"></button>
+                    </div>
+                    <a href="/auth/forgot-password.html" data-internal-link class="forgot-password-link">Forgot password?</a>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Login</button>
+            </form>
+            <p class="auth-switch">Don't have an account? <a href="/auth/register.html" data-internal-link>Register here</a></p>
+
+            <!-- Optional Social Login Buttons (Future Enhancement) -->
+            <div class="social-login-options">
+                <p>- OR -</p>
+                <button class="btn btn-secondary btn-block social-btn google-btn" disabled>Login with Google</button>
+                <button class="btn btn-secondary btn-block social-btn facebook-btn" disabled>Login with Facebook</button>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="../../main.js"></script>
+    <script type="module" src="../../assets/js/pages/auth/login.js"></script>
+</body>
+</html>

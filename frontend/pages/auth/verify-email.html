@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verify Email - Local Shopping Web-App</title>
+    <link rel="stylesheet" href="../../assets/css/main.css">
+    <link rel="stylesheet" href="../../assets/css/components.css">
+    <link rel="stylesheet" href="../../assets/css/responsive.css">
+    <link rel="stylesheet" href="../../assets/css/themes.css">
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-card">
+            <h2>Verify Your Email Address</h2>
+            <p>A verification link has been sent to your email address. Please check your inbox (and spam folder) to activate your account.</p>
+            <button type="button" id="resendEmailBtn" class="btn btn-primary btn-block">Resend Verification Email</button>
+            <p id="resendMessage" class="success-message hidden">Verification email resent. Please check your inbox.</p>
+            <p class="auth-switch">Already verified? <a href="/auth/login.html" data-internal-link>Login here</a></p>
+        </div>
+    </div>
+
+    <script type="module" src="../../main.js"></script>
+    <script type="module" src="../../assets/js/pages/auth/verify-email.js"></script>
+</body>
+</html>
