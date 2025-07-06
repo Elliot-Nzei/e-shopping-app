@@ -3,10 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Product</title>
+    <title>Add New Product - Local Shopping Web-App</title>
     <link rel="stylesheet" href="../../assets/css/main.css">
+    <link rel="stylesheet" href="../../assets/css/components.css">
+    <link rel="stylesheet" href="../../assets/css/responsive.css">
+    <link rel="stylesheet" href="../../assets/css/themes.css">
 </head>
 <body>
-    <h1>Add Product</h1>
+    <div id="app-content">
+        <div class="add-product-container container">
+            <h2>Add New Product</h2>
+
+            <form id="add-product-form" class="product-form">
+                <div class="form-section active" data-step="1">
+                    <h3>Product Details</h3>
+                    <div class="form-group">
+                        <label for="product-name">Product Name</label>
+                        <input type="text" id="product-name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="product-description">Description</label>
+                        <textarea id="product-description" name="description" rows="5"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="product-price">Price (₦)</label>
+                        <input type="number" id="product-price" name="price" step="0.01" min="0" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="product-category">Category</label>
+                        <select id="product-category" name="category" required>
+                            <option value="">Select Category</option>
+                            <option value="electronics">Electronics</option>
+                            <option value="fashion">Fashion</option>
+                            <option value="food">Food & Groceries</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="product-stock">Stock Quantity</label>
+                        <input type="number" id="product-stock" name="stock" min="0" required>
+                    </div>
+                </div>
+
+                <div class="form-section" data-step="2">
+                    <h3>Product Media & Variants</h3>
+                    <div class="form-group">
+                        <label for="product-images">Product Images</label>
+                        <input type="file" id="product-images" name="images" accept="image/*" multiple>
+                        <div id="image-preview-container" class="image-preview-container"></div>
+                    </div>
+                    <div class="form-group">
+                        <label>Variants (e.g., Color, Size)</label>
+                        <div id="variants-container">
+                            <!-- Dynamic variant inputs will go here -->
+                            <div class="variant-item">
+                                <input type="text" name="variant_name[]" placeholder="Variant Name (e.g., Color)">
+                                <input type="text" name="variant_value[]" placeholder="Variant Value (e.g., Red)">
+                                <button type="button" class="btn btn-error btn-sm remove-variant-btn">Remove</button>
+                            </div>
+                        </div>
+                        <button type="button" id="add-variant-btn" class="btn btn-secondary btn-sm">Add Variant</button>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary prev-step hidden">Previous</button>
+                    <button type="button" class="btn btn-primary next-step">Next</button>
+                    <button type="submit" class="btn btn-success submit-product-btn hidden">Add Product</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script type="module" src="../../main.js"></script>
+    <script type="module" src="../../assets/js/pages/seller/add-product.js"></script>
 </body>
 </html>

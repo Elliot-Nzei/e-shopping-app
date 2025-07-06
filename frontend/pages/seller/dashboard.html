@@ -3,11 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Seller Dashboard</title>
+    <title>Seller Dashboard - Local Shopping Web-App</title>
     <link rel="stylesheet" href="../../assets/css/main.css">
+    <link rel="stylesheet" href="../../assets/css/components.css">
+    <link rel="stylesheet" href="../../assets/css/responsive.css">
+    <link rel="stylesheet" href="../../assets/css/themes.css">
 </head>
 <body>
-    <h1>Seller Dashboard</h1>
-    <script src="../../assets/js/pages/seller.js"></script>
+    <div id="app-content">
+        <div class="seller-dashboard-container container">
+            <aside class="dashboard-sidebar">
+                <nav>
+                    <ul>
+                        <li><a href="#overview" class="sidebar-link active" data-section="overview">Overview</a></li>
+                        <li><a href="#products" class="sidebar-link" data-section="products">Products</a></li>
+                        <li><a href="#orders" class="sidebar-link" data-section="orders">Orders</a></li>
+                        <li><a href="#analytics" class="sidebar-link" data-section="analytics">Analytics</a></li>
+                        <li><a href="#shop-profile" class="sidebar-link" data-section="shop-profile">Shop Profile</a></li>
+                        <li><a href="#add-product" class="sidebar-link" data-section="add-product">Add Product</a></li>
+                    </ul>
+                </nav>
+            </aside>
+
+            <main class="dashboard-main-content">
+                <section id="overview" class="dashboard-section active">
+                    <h2>Dashboard Overview</h2>
+                    <div class="summary-cards-grid">
+                        <div class="summary-card">
+                            <h3>Total Sales</h3>
+                            <p class="metric">₦150,000</p>
+                        </div>
+                        <div class="summary-card">
+                            <h3>Total Orders</h3>
+                            <p class="metric">50</p>
+                        </div>
+                        <div class="summary-card">
+                            <h3>Total Products</h3>
+                            <p class="metric">25</p>
+                        </div>
+                        <div class="summary-card">
+                            <h3>Pending Orders</h3>
+                            <p class="metric">5</p>
+                        </div>
+                    </div>
+                    <div class="chart-container">
+                        <h3>Revenue Graph</h3>
+                        <canvas id="revenueChart"></canvas>
+                    </div>
+                </section>
+
+                <section id="products" class="dashboard-section">
+                    <h2>My Products</h2>
+                    <!-- Product listing table/grid will go here -->
+                    <p>Product management interface will be loaded here.</p>
+                </section>
+
+                <section id="orders" class="dashboard-section">
+                    <h2>My Orders</h2>
+                    <!-- Order listing table/grid will go here -->
+                    <p>Order management interface will be loaded here.</p>
+                </section>
+
+                <section id="analytics" class="dashboard-section">
+                    <h2>Analytics</h2>
+                    <!-- Analytics charts and data will go here -->
+                    <p>Sales and user behavior analytics will be displayed here.</p>
+                </section>
+
+                <section id="shop-profile" class="dashboard-section">
+                    <h2>Shop Profile</h2>
+                    <!-- Shop profile management will go here -->
+                    <p>Manage your shop's public profile.</p>
+                </section>
+
+                <section id="add-product" class="dashboard-section">
+                    <h2>Add New Product</h2>
+                    <!-- Add product form will go here -->
+                    <p>Form to add new products.</p>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <script type="module" src="../../main.js"></script>
+    <script type="module" src="../../assets/js/pages/seller.js"></script>
+    <!-- Chart.js for analytics, if used -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </body>
 </html>

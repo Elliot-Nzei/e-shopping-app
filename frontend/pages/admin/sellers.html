@@ -3,10 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Sellers</title>
+    <title>Admin Sellers - Local Shopping Web-App</title>
     <link rel="stylesheet" href="../../assets/css/main.css">
+    <link rel="stylesheet" href="../../assets/css/components.css">
+    <link rel="stylesheet" href="../../assets/css/responsive.css">
+    <link rel="stylesheet" href="../../assets/css/themes.css">
 </head>
 <body>
-    <h1>Admin Sellers</h1>
+    <div id="app-content">
+        <div class="admin-page-container container">
+            <aside class="dashboard-sidebar">
+                <nav>
+                    <ul>
+                        <li><a href="/admin/dashboard.html" class="sidebar-link" data-internal-link data-section="overview">Overview</a></li>
+                        <li><a href="/admin/users.html" class="sidebar-link" data-internal-link data-section="users">Users</a></li>
+                        <li><a href="/admin/sellers.html" class="sidebar-link active" data-internal-link data-section="sellers">Sellers</a></li>
+                        <li><a href="/admin/products.html" class="sidebar-link" data-internal-link data-section="products">Products</a></li>
+                        <li><a href="/admin/orders.html" class="sidebar-link" data-internal-link data-section="orders">Orders</a></li>
+                        <li><a href="/admin/categories.html" class="sidebar-link" data-internal-link data-section="categories">Categories</a></li>
+                        <li><a href="/admin/analytics.html" class="sidebar-link" data-internal-link data-section="analytics">Analytics</a></li>
+                        <li><a href="/admin/settings.html" class="sidebar-link" data-internal-link data-section="settings">Settings</a></li>
+                    </ul>
+                </nav>
+            </aside>
+
+            <main class="dashboard-main-content">
+                <section id="sellers-management" class="dashboard-section active">
+                    <h2>Seller Management</h2>
+
+                    <div class="filters-search-section">
+                        <div class="form-group">
+                            <label for="seller-status-filter">Status:</label>
+                            <select id="seller-status-filter" name="status">
+                                <option value="all">All</option>
+                                <option value="approved">Approved</option>
+                                <option value="pending">Pending</option>
+                                <option value="suspended">Suspended</option>
+                            </select>
+                        </div>
+                        <div class="form-group search-group">
+                            <label for="seller-search">Search Sellers:</label>
+                            <input type="text" id="seller-search" name="search" placeholder="Search by Name or Email">
+                        </div>
+                        <button class="btn btn-primary" id="add-new-seller-btn">Add New Seller</button>
+                    </div>
+
+                    <div class="table-actions">
+                        <button class="btn btn-secondary" id="bulk-approve-sellers-btn">Bulk Approve</button>
+                        <button class="btn btn-error" id="bulk-suspend-sellers-btn">Bulk Suspend</button>
+                    </div>
+
+                    <div class="data-table-container">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th><input type="checkbox" id="select-all-sellers"></th>
+                                    <th>ID</th>
+                                    <th>Business Name</th>
+                                    <th>Owner Email</th>
+                                    <th>Status</th>
+                                    <th>Permissions</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="admin-sellers-table-body">
+                                <!-- Seller rows will be loaded here by JavaScript -->
+                                <tr>
+                                    <td><input type="checkbox" class="seller-select-checkbox"></td>
+                                    <td>101</td>
+                                    <td>Shop A</td>
+                                    <td>shopa@example.com</td>
+                                    <td><span class="status-badge status-approved">Approved</span></td>
+                                    <td>Product, Order</td>
+                                    <td>
+                                        <button class="btn btn-sm btn-primary view-seller-btn">View</button>
+                                        <button class="btn btn-sm btn-secondary edit-seller-btn">Edit</button>
+                                        <button class="btn btn-sm btn-error delete-seller-btn">Delete</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div id="admin-sellers-pagination" class="pagination-container"></div>
+
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <script type="module" src="../../main.js"></script>
+    <script type="module" src="../../assets/js/pages/admin/sellers.js"></script>
 </body>
 </html>

@@ -3,10 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shop Profile</title>
+    <title>Shop Profile - Local Shopping Web-App</title>
     <link rel="stylesheet" href="../../assets/css/main.css">
+    <link rel="stylesheet" href="../../assets/css/components.css">
+    <link rel="stylesheet" href="../../assets/css/responsive.css">
+    <link rel="stylesheet" href="../../assets/css/themes.css">
 </head>
 <body>
-    <h1>Shop Profile</h1>
+    <div id="app-content">
+        <div class="shop-profile-container container">
+            <h2>Manage Your Shop Profile</h2>
+
+            <div class="shop-profile-header">
+                <div class="shop-branding">
+                    <img src="https://via.placeholder.com/100x100?text=ShopLogo" alt="Shop Logo" class="shop-logo" id="shop-logo-preview">
+                    <input type="file" id="logo-upload" accept="image/*" class="hidden">
+                    <label for="logo-upload" class="btn btn-secondary btn-sm">Upload Logo</label>
+                </div>
+                <div class="shop-banner">
+                    <img src="https://via.placeholder.com/800x200?text=ShopBanner" alt="Shop Banner" class="shop-banner-img" id="shop-banner-preview">
+                    <input type="file" id="banner-upload" accept="image/*" class="hidden">
+                    <label for="banner-upload" class="btn btn-secondary btn-sm">Upload Banner</label>
+                </div>
+            </div>
+
+            <form id="shop-profile-form" class="settings-form">
+                <div class="form-group">
+                    <label for="shop-name">Shop Name</label>
+                    <input type="text" id="shop-name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="shop-description">Description</label>
+                    <textarea id="shop-description" name="description" rows="5"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="shop-phone">Phone</label>
+                    <input type="tel" id="shop-phone" name="phone">
+                </div>
+                <div class="form-group">
+                    <label for="shop-email">Email</label>
+                    <input type="email" id="shop-email" name="email">
+                </div>
+                <div class="form-group">
+                    <label for="shop-address">Address</label>
+                    <textarea id="shop-address" name="address" rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="shop-website">Website</label>
+                    <input type="url" id="shop-website" name="website">
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">Save Profile</button>
+                    <button type="button" class="btn btn-secondary">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script type="module" src="../../main.js"></script>
+    <script type="module" src="../../assets/js/pages/seller/shop-profile.js"></script>
 </body>
 </html>

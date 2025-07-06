@@ -3,11 +3,119 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard</title>
+    <title>Admin Dashboard - Local Shopping Web-App</title>
     <link rel="stylesheet" href="../../assets/css/main.css">
+    <link rel="stylesheet" href="../../assets/css/components.css">
+    <link rel="stylesheet" href="../../assets/css/responsive.css">
+    <link rel="stylesheet" href="../../assets/css/themes.css">
 </head>
 <body>
-    <h1>Admin Dashboard</h1>
-    <script src="../../assets/js/pages/admin.js"></script>
+    <div id="app-content">
+        <div class="admin-dashboard-container container">
+            <aside class="dashboard-sidebar">
+                <nav>
+                    <ul>
+                        <li><a href="#overview" class="sidebar-link active" data-section="overview">Overview</a></li>
+                        <li><a href="#users" class="sidebar-link" data-section="users">Users</a></li>
+                        <li><a href="#sellers" class="sidebar-link" data-section="sellers">Sellers</a></li>
+                        <li><a href="#products" class="sidebar-link" data-section="products">Products</a></li>
+                        <li><a href="#orders" class="sidebar-link" data-section="orders">Orders</a></li>
+                        <li><a href="#categories" class="sidebar-link" data-section="categories">Categories</a></li>
+                        <li><a href="#analytics" class="sidebar-link" data-section="analytics">Analytics</a></li>
+                        <li><a href="#settings" class="sidebar-link" data-section="settings">Settings</a></li>
+                    </ul>
+                </nav>
+            </aside>
+
+            <main class="dashboard-main-content">
+                <section id="overview" class="dashboard-section active">
+                    <h2>Admin Overview</h2>
+                    <div class="summary-cards-grid">
+                        <div class="summary-card">
+                            <h3>Total Users</h3>
+                            <p class="metric" id="total-users">0</p>
+                        </div>
+                        <div class="summary-card">
+                            <h3>Total Sellers</h3>
+                            <p class="metric" id="total-sellers">0</p>
+                        </div>
+                        <div class="summary-card">
+                            <h3>Total Products</h3>
+                            <p class="metric" id="total-products">0</p>
+                        </div>
+                        <div class="summary-card">
+                            <h3>Total Orders</h3>
+                            <p class="metric" id="total-orders">0</p>
+                        </div>
+                        <div class="summary-card">
+                            <h3>Revenue</h3>
+                            <p class="metric" id="total-revenue">₦0</p>
+                        </div>
+                        <div class="summary-card">
+                            <h3>Pending Approvals</h3>
+                            <p class="metric" id="pending-approvals">0</p>
+                        </div>
+                    </div>
+
+                    <div class="chart-container">
+                        <h3>User Signups Over Time</h3>
+                        <canvas id="userSignupsChart"></canvas>
+                    </div>
+
+                    <div class="chart-container">
+                        <h3>Sales Trends</h3>
+                        <canvas id="adminSalesTrendChart"></canvas>
+                    </div>
+
+                    <div class="notifications-area">
+                        <h3>Notifications & Alerts</h3>
+                        <ul id="admin-notifications-list">
+                            <li><span class="notification-type warning">Warning:</span> Low stock on Product XYZ.</li>
+                            <li><span class="notification-type info">Info:</span> 3 new seller applications pending review.</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section id="users" class="dashboard-section">
+                    <h2>User Management</h2>
+                    <p>Manage user accounts (customers).</p>
+                </section>
+
+                <section id="sellers" class="dashboard-section">
+                    <h2>Seller Management</h2>
+                    <p>Manage seller and submaster accounts.</p>
+                </section>
+
+                <section id="products" class="dashboard-section">
+                    <h2>Product Management</h2>
+                    <p>Manage product listings.</p>
+                </section>
+
+                <section id="orders" class="dashboard-section">
+                    <h2>Order Management</h2>
+                    <p>Monitor and manage all orders.</p>
+                </section>
+
+                <section id="categories" class="dashboard-section">
+                    <h2>Category Management</h2>
+                    <p>Manage product categories and subcategories.</p>
+                </section>
+
+                <section id="analytics" class="dashboard-section">
+                    <h2>Platform Analytics</h2>
+                    <p>Detailed platform-wide analytics.</p>
+                </section>
+
+                <section id="settings" class="dashboard-section">
+                    <h2>Admin Settings</h2>
+                    <p>System configurations and permissions.</p>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <script type="module" src="../../main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script type="module" src="../../assets/js/pages/admin.js"></script>
 </body>
 </html>

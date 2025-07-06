@@ -3,10 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Analytics</title>
+    <title>Admin Analytics - Local Shopping Web-App</title>
     <link rel="stylesheet" href="../../assets/css/main.css">
+    <link rel="stylesheet" href="../../assets/css/components.css">
+    <link rel="stylesheet" href="../../assets/css/responsive.css">
+    <link rel="stylesheet" href="../../assets/css/themes.css">
 </head>
 <body>
-    <h1>Admin Analytics</h1>
+    <div id="app-content">
+        <div class="admin-page-container container">
+            <aside class="dashboard-sidebar">
+                <nav>
+                    <ul>
+                        <li><a href="/admin/dashboard.html" class="sidebar-link" data-internal-link data-section="overview">Overview</a></li>
+                        <li><a href="/admin/users.html" class="sidebar-link" data-internal-link data-section="users">Users</a></li>
+                        <li><a href="/admin/sellers.html" class="sidebar-link" data-internal-link data-section="sellers">Sellers</a></li>
+                        <li><a href="/admin/products.html" class="sidebar-link" data-internal-link data-section="products">Products</a></li>
+                        <li><a href="/admin/orders.html" class="sidebar-link" data-internal-link data-section="orders">Orders</a></li>
+                        <li><a href="/admin/categories.html" class="sidebar-link" data-internal-link data-section="categories">Categories</a></li>
+                        <li><a href="/admin/analytics.html" class="sidebar-link active" data-internal-link data-section="analytics">Analytics</a></li>
+                        <li><a href="/admin/settings.html" class="sidebar-link" data-internal-link data-section="settings">Settings</a></li>
+                    </ul>
+                </nav>
+            </aside>
+
+            <main class="dashboard-main-content">
+                <section id="platform-analytics" class="dashboard-section active">
+                    <h2>Platform Analytics</h2>
+
+                    <div class="filters-section">
+                        <div class="form-group">
+                            <label for="admin-analytics-date-range-filter">Date Range:</label>
+                            <select id="admin-analytics-date-range-filter" name="date_range">
+                                <option value="last_7_days">Last 7 Days</option>
+                                <option value="last_30_days">Last 30 Days</option>
+                                <option value="this_month">This Month</option>
+                                <option value="last_month">Last Month</option>
+                                <option value="this_year">This Year</option>
+                            </select>
+                        </div>
+                        <button class="btn btn-secondary" id="admin-export-analytics-btn">Export Data</button>
+                    </div>
+
+                    <div class="analytics-cards-grid">
+                        <div class="analytics-card">
+                            <h3>Total Platform Sales</h3>
+                            <p class="metric">₦1,500,000</p>
+                        </div>
+                        <div class="analytics-card">
+                            <h3>Total Active Users</h3>
+                            <p class="metric">1,000</p>
+                        </div>
+                        <div class="analytics-card">
+                            <h3>Total Active Sellers</h3>
+                            <p class="metric">120</p>
+                        </div>
+                        <div class="analytics-card">
+                            <h3>Total Products Listed</h3>
+                            <p class="metric">5,000</p>
+                        </div>
+                    </div>
+
+                    <div class="chart-row">
+                        <div class="chart-container-lg">
+                            <h3>Sales by Category</h3>
+                            <canvas id="salesByCategoryChart"></canvas>
+                        </div>
+                        <div class="chart-container-lg">
+                            <h3>User Growth</h3>
+                            <canvas id="userGrowthChart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="chart-row">
+                        <div class="chart-container-md">
+                            <h3>Top Selling Products</h3>
+                            <canvas id="topSellingProductsChart"></canvas>
+                        </div>
+                        <div class="chart-container-md">
+                            <h3>Revenue by Seller</h3>
+                            <canvas id="revenueBySellerChart"></canvas>
+                        </div>
+                    </div>
+
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <script type="module" src="../../main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script type="module" src="../../assets/js/pages/admin/analytics.js"></script>
 </body>
 </html>

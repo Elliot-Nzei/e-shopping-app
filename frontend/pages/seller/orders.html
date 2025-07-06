@@ -3,10 +3,113 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Seller Orders</title>
+    <title>Seller Orders - Local Shopping Web-App</title>
     <link rel="stylesheet" href="../../assets/css/main.css">
+    <link rel="stylesheet" href="../../assets/css/components.css">
+    <link rel="stylesheet" href="../../assets/css/responsive.css">
+    <link rel="stylesheet" href="../../assets/css/themes.css">
 </head>
 <body>
-    <h1>Seller Orders</h1>
+    <div id="app-content">
+        <div class="seller-orders-container container">
+            <h2>Seller Orders</h2>
+
+            <div class="filters-search-section">
+                <div class="form-group">
+                    <label for="order-status-filter">Status:</label>
+                    <select id="order-status-filter" name="status">
+                        <option value="all">All</option>
+                        <option value="pending">Pending</option>
+                        <option value="shipped">Shipped</option>
+                        <option value="delivered">Delivered</option>
+                        <option value="cancelled">Cancelled</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="order-date-filter">Date Range:</label>
+                    <input type="date" id="order-date-filter" name="date_range">
+                </div>
+                <div class="form-group">
+                    <label for="order-seller-filter">Seller:</label>
+                    <select id="order-seller-filter" name="seller">
+                        <option value="all">All Sellers</option>
+                        <!-- Sellers will be loaded dynamically -->
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="order-payment-status-filter">Payment Status:</label>
+                    <select id="order-payment-status-filter" name="payment_status">
+                        <option value="all">All</option>
+                        <option value="paid">Paid</option>
+                        <option value="unpaid">Unpaid</option>
+                    </select>
+                </div>
+                <div class="form-group search-group">
+                    <label for="order-search">Search Orders:</label>
+                    <input type="text" id="order-search" name="search" placeholder="Search by Order ID or Customer">
+                </div>
+            </div>
+
+            <div class="orders-table-container">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>User</th>
+                            <th>Seller</th>
+                            <th>Date</th>
+                            <th>Status</th>
+                            <th>Total</th>
+                            <th>Payment Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="seller-orders-table-body">
+                        <!-- Order rows will be loaded here by JavaScript -->
+                        <tr>
+                            <td>ORD001</td>
+                            <td>John Doe</td>
+                            <td>Shop A</td>
+                            <td>2025-07-01</td>
+                            <td><span class="status-badge status-pending">Pending</span></td>
+                            <td>₦15,000</td>
+                            <td>Paid</td>
+                            <td>
+                                <button class="btn btn-sm btn-primary view-order-details-btn">View</button>
+                                <button class="btn btn-sm btn-secondary update-status-btn">Update Status</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div id="seller-orders-pagination" class="pagination-container"></div>
+
+            <!-- Order Details Modal (Hidden by default) -->
+            <div id="sellerOrderDetailsModal" class="modal">
+                <div class="modal-content">
+                    <span class="close-button">&times;</span>
+                    <h3>Order Details #<span id="seller-modal-order-id"></span></h3>
+                    <div id="seller-modal-order-details-content">
+                        <!-- Details will be loaded here -->
+                        <p><strong>Customer:</strong> <span id="seller-modal-customer-name"></span></p>
+                        <p><strong>Delivery Address:</strong> <span id="seller-modal-delivery-address"></span></p>
+                        <p><strong>Payment Method:</strong> <span id="seller-modal-payment-method"></span></p>
+                        <p><strong>Tracking Info:</strong> <span id="seller-modal-tracking-info"></span></p>
+                        <h4>Items:</h4>
+                        <ul id="seller-modal-order-items"></ul>
+                    </div>
+                    <div class="modal-actions">
+                        <button class="btn btn-secondary" id="issueRefundBtn">Issue Refund</button>
+                        <button class="btn btn-primary" id="exportOrderBtn">Export Order</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script type="module" src="../../main.js"></script>
+    <script type="module" src="../../assets/js/pages/seller/orders.js"></script>
 </body>
 </html>

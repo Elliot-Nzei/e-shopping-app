@@ -3,10 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Seller Analytics</title>
+    <title>Seller Analytics - Local Shopping Web-App</title>
     <link rel="stylesheet" href="../../assets/css/main.css">
+    <link rel="stylesheet" href="../../assets/css/components.css">
+    <link rel="stylesheet" href="../../assets/css/responsive.css">
+    <link rel="stylesheet" href="../../assets/css/themes.css">
 </head>
 <body>
-    <h1>Seller Analytics</h1>
+    <div id="app-content">
+        <div class="seller-analytics-container container">
+            <h2>Seller Analytics</h2>
+
+            <div class="filters-section">
+                <div class="form-group">
+                    <label for="date-range-filter">Date Range:</label>
+                    <select id="date-range-filter" name="date_range">
+                        <option value="last_7_days">Last 7 Days</option>
+                        <option value="last_30_days">Last 30 Days</option>
+                        <option value="this_month">This Month</option>
+                        <option value="last_month">Last Month</option>
+                        <option value="this_year">This Year</option>
+                    </select>
+                </div>
+                <button class="btn btn-secondary" id="export-analytics-btn">Export Data</button>
+            </div>
+
+            <div class="analytics-cards-grid">
+                <div class="analytics-card">
+                    <h3>Total Sales</h3>
+                    <p class="metric">₦150,000</p>
+                </div>
+                <div class="analytics-card">
+                    <h3>Total Orders</h3>
+                    <p class="metric">50</p>
+                </div>
+                <div class="analytics-card">
+                    <h3>Conversion Rate</h3>
+                    <p class="metric">5.2%</p>
+                </div>
+                <div class="analytics-card">
+                    <h3>Average Order Value</h3>
+                    <p class="metric">₦3,000</p>
+                </div>
+            </div>
+
+            <div class="chart-row">
+                <div class="chart-container-lg">
+                    <h3>Sales Trends</h3>
+                    <canvas id="salesTrendChart"></canvas>
+                </div>
+                <div class="chart-container-lg">
+                    <h3>Product Performance</h3>
+                    <canvas id="productPerformanceChart"></canvas>
+                </div>
+            </div>
+
+            <div class="chart-row">
+                <div class="chart-container-md">
+                    <h3>Traffic Sources</h3>
+                    <canvas id="trafficSourceChart"></canvas>
+                </div>
+                <div class="chart-container-md">
+                    <h3>Customer Demographics</h3>
+                    <canvas id="customerDemographicsChart"></canvas>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script type="module" src="../../main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script type="module" src="../../assets/js/pages/seller/analytics.js"></script>
 </body>
 </html>

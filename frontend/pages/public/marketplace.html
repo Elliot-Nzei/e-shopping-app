@@ -3,11 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Marketplace</title>
-    <link rel="stylesheet" href="../../assets/css/main.css">
+    <title>Marketplace - Local Shopping Web-App</title>
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/components.css">
+    <link rel="stylesheet" href="../assets/css/responsive.css">
+    <link rel="stylesheet" href="../assets/css/themes.css">
 </head>
 <body>
-    <h1>Marketplace</h1>
-    <script src="../../assets/js/pages/marketplace.js"></script>
+    <div id="app-content">
+        <div class="marketplace-container container">
+            <aside class="marketplace-sidebar">
+                <h3>Categories</h3>
+                <ul id="category-list" class="category-list">
+                    <li><a href="#" data-category="all">All Categories</a></li>
+                    <li><a href="#" data-category="electronics">Electronics</a></li>
+                    <li><a href="#" data-category="fashion">Fashion</a></li>
+                    <li><a href="#" data-category="food">Food & Groceries</a></li>
+                    <!-- Categories loaded dynamically by JS -->
+                </ul>
+
+                <h3>Filters</h3>
+                <div class="filter-group">
+                    <label for="price-range">Price Range:</label>
+                    <input type="range" id="price-range" min="0" max="100000" value="100000">
+                    <span id="price-range-display">₦0 - ₦100,000</span>
+                </div>
+                <div class="filter-group">
+                    <label for="brand-filter">Brand:</label>
+                    <select id="brand-filter">
+                        <option value="all">All Brands</option>
+                        <!-- Brands loaded dynamically -->
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="shop-filter">Shop:</label>
+                    <select id="shop-filter">
+                        <option value="all">All Shops</option>
+                        <!-- Shops loaded dynamically -->
+                    </select>
+                </div>
+            </aside>
+
+            <main class="marketplace-main-content">
+                <div class="search-sort-section">
+                    <div class="search-bar">
+                        <input type="text" id="marketplace-search-input" placeholder="Search products...">
+                        <button class="btn btn-primary">Search</button>
+                    </div>
+                    <div class="sort-options">
+                        <label for="sort-by">Sort By:</label>
+                        <select id="sort-by">
+                            <option value="popularity">Popularity</option>
+                            <option value="price_asc">Price: Low to High</option>
+                            <option value="price_desc">Price: High to Low</option>
+                            <option value="newest">Newest Arrivals</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="marketplace-products-grid" class="product-grid">
+                    <!-- Product cards will be loaded here by JavaScript -->
+                    <div class="product-card">
+                        <img src="https://via.placeholder.com/280x200?text=Product1" alt="Product Image" class="product-image">
+                        <div class="product-info">
+                            <h3>Product Name 1</h3>
+                            <p class="product-seller">Sold by: Shop A</p>
+                            <p class="product-price">₦15,000</p>
+                            <div class="product-actions">
+                                <button class="btn btn-primary btn-sm add-to-cart-btn">Add to Cart</button>
+                                <button class="btn btn-secondary btn-sm add-to-wishlist-btn">Wishlist</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <img src="https://via.placeholder.com/280x200?text=Product2" alt="Product Image" class="product-image">
+                        <div class="product-info">
+                            <h3>Product Name 2</h3>
+                            <p class="product-seller">Sold by: Shop B</p>
+                            <p class="product-price">₦25,000</p>
+                            <div class="product-actions">
+                                <button class="btn btn-primary btn-sm add-to-cart-btn">Add to Cart</button>
+                                <button class="btn btn-secondary btn-sm add-to-wishlist-btn">Wishlist</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="marketplace-pagination" class="pagination-container"></div>
+            </main>
+        </div>
+    </div>
+
+    <script type="module" src="../main.js"></script>
+    <script type="module" src="../assets/js/pages/marketplace.js"></script>
 </body>
 </html>

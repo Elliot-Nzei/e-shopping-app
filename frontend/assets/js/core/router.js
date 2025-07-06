@@ -9,6 +9,22 @@ import { initLoginPage } from '../pages/auth/login.js';
 import { initRegisterPage } from '../pages/auth/register.js';
 import { initForgotPasswordPage } from '../pages/auth/forgot-password.js';
 import { initVerifyEmailPage } from '../pages/auth/verify-email.js';
+import { initProfilePage } from '../pages/user/profile.js';
+import { initOrdersPage } from '../pages/user/orders.js';
+import { initWishlistPage } from '../pages/user/wishlist.js';
+import { initSettingsPage } from '../pages/user/settings.js';
+import { initSellerDashboard } from '../pages/seller.js';
+import { initSellerProductsPage } from '../pages/seller/products.js';
+import { initAddProductPage } from '../pages/seller/add-product.js';
+import { initSellerOrdersPage } from '../pages/seller/orders.js';
+import { initSellerAnalyticsPage } from '../pages/seller/analytics.js';
+import { initAdminDashboard } from '../pages/admin.js';
+import { initAdminUsersPage } from '../pages/admin/users.js';
+import { initAdminSellersPage } from '../pages/admin/sellers.js';
+import { initAdminCategoriesPage } from '../pages/admin/categories.js';
+import { initAdminProductsPage } from '../pages/admin/products.js';
+import { initAdminOrdersPage } from '../pages/admin/orders.js';
+import { initAdminAnalyticsPage } from '../pages/admin/analytics.js';
 
 /**
  * Navigates to a specified path within the application.
@@ -32,6 +48,22 @@ const routes = {
     '/auth/register.html': { page: 'auth/register.html', init: initRegisterPage },
     '/auth/forgot-password.html': { page: 'auth/forgot-password.html', init: initForgotPasswordPage },
     '/auth/verify-email.html': { page: 'auth/verify-email.html', init: initVerifyEmailPage },
+    '/user/profile.html': { page: 'user/profile.html', init: initProfilePage },
+    '/user/orders.html': { page: 'user/orders.html', init: initOrdersPage },
+    '/user/wishlist.html': { page: 'user/wishlist.html', init: initWishlistPage },
+    '/user/settings.html': { page: 'user/settings.html', init: initSettingsPage },
+    '/seller/dashboard.html': { page: 'seller/dashboard.html', init: initSellerDashboard },
+    '/seller/products.html': { page: 'seller/products.html', init: initSellerProductsPage },
+    '/seller/add-product.html': { page: 'seller/add-product.html', init: initAddProductPage },
+    '/seller/orders.html': { page: 'seller/orders.html', init: initSellerOrdersPage },
+    '/seller/analytics.html': { page: 'seller/analytics.html', init: initSellerAnalyticsPage },
+    '/admin/dashboard.html': { page: 'admin/dashboard.html', init: initAdminDashboard },
+    '/admin/users.html': { page: 'admin/users.html', init: initAdminUsersPage },
+    '/admin/sellers.html': { page: 'admin/sellers.html', init: initAdminSellersPage },
+    '/admin/products.html': { page: 'admin/products.html', init: initAdminProductsPage },
+    '/admin/orders.html': { page: 'admin/orders.html', init: initAdminOrdersPage },
+    '/admin/categories.html': { page: 'admin/categories.html', init: initAdminCategoriesPage },
+    '/admin/analytics.html': { page: 'admin/analytics.html', init: initAdminAnalyticsPage },
     // Add more routes here
     '404': { page: '404.html', init: null } // Fallback for unknown routes
 };
@@ -67,6 +99,8 @@ async function loadPage(pageName, initFunction = null) {
 /**
  * Handles the current URL location and renders the appropriate content.
  * This function is called on initial page load and when the URL changes (e.g., via navigateTo or browser back/forward).
+ *
+ * @returns {void}
  */
 export function handleLocation() {
     const path = window.location.pathname;

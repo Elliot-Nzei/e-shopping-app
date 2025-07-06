@@ -3,10 +3,108 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Categories</title>
+    <title>Admin Categories - Local Shopping Web-App</title>
     <link rel="stylesheet" href="../../assets/css/main.css">
+    <link rel="stylesheet" href="../../assets/css/components.css">
+    <link rel="stylesheet" href="../../assets/css/responsive.css">
+    <link rel="stylesheet" href="../../assets/css/themes.css">
 </head>
 <body>
-    <h1>Admin Categories</h1>
+    <div id="app-content">
+        <div class="admin-page-container container">
+            <aside class="dashboard-sidebar">
+                <nav>
+                    <ul>
+                        <li><a href="/admin/dashboard.html" class="sidebar-link" data-internal-link data-section="overview">Overview</a></li>
+                        <li><a href="/admin/users.html" class="sidebar-link" data-internal-link data-section="users">Users</a></li>
+                        <li><a href="/admin/sellers.html" class="sidebar-link" data-internal-link data-section="sellers">Sellers</a></li>
+                        <li><a href="/admin/products.html" class="sidebar-link" data-internal-link data-section="products">Products</a></li>
+                        <li><a href="/admin/orders.html" class="sidebar-link" data-internal-link data-section="orders">Orders</a></li>
+                        <li><a href="/admin/categories.html" class="sidebar-link active" data-internal-link data-section="categories">Categories</a></li>
+                        <li><a href="/admin/analytics.html" class="sidebar-link" data-internal-link data-section="analytics">Analytics</a></li>
+                        <li><a href="/admin/settings.html" class="sidebar-link" data-internal-link data-section="settings">Settings</a></li>
+                    </ul>
+                </nav>
+            </aside>
+
+            <main class="dashboard-main-content">
+                <section id="categories-management" class="dashboard-section active">
+                    <h2>Category Management</h2>
+
+                    <div class="category-actions">
+                        <button class="btn btn-primary" id="add-category-btn">Add New Category</button>
+                    </div>
+
+                    <div class="category-tree-container">
+                        <ul id="category-tree" class="category-tree">
+                            <!-- Categories will be loaded here by JavaScript -->
+                            <li class="category-item" data-category-id="1">
+                                <div class="category-header">
+                                    <span class="category-toggle">&#9658;</span>
+                                    <span class="category-name">Electronics</span>
+                                    <div class="category-controls">
+                                        <button class="btn btn-sm btn-secondary edit-category-btn">Edit</button>
+                                        <button class="btn btn-sm btn-error delete-category-btn">Delete</button>
+                                    </div>
+                                </div>
+                                <ul class="subcategory-list">
+                                    <li class="category-item" data-category-id="101">
+                                        <div class="category-header">
+                                            <span class="category-toggle">&#9658;</span>
+                                            <span class="category-name">Laptops</span>
+                                            <div class="category-controls">
+                                                <button class="btn btn-sm btn-secondary edit-category-btn">Edit</button>
+                                                <button class="btn btn-sm btn-error delete-category-btn">Delete</button>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="category-item" data-category-id="2">
+                                <div class="category-header">
+                                    <span class="category-toggle">&#9658;</span>
+                                    <span class="category-name">Fashion</span>
+                                    <div class="category-controls">
+                                        <button class="btn btn-sm btn-secondary edit-category-btn">Edit</button>
+                                        <button class="btn btn-sm btn-error delete-category-btn">Delete</button>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Category Modal (Add/Edit) -->
+                    <div id="categoryModal" class="modal">
+                        <div class="modal-content">
+                            <span class="close-button">&times;</span>
+                            <h3><span id="modal-title">Add New</span> Category</h3>
+                            <form id="category-form">
+                                <div class="form-group">
+                                    <label for="category-name">Category Name</label>
+                                    <input type="text" id="category-name" name="name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="category-description">Description</label>
+                                    <textarea id="category-description" name="description" rows="3"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="parent-category">Parent Category (Optional)</label>
+                                    <select id="parent-category" name="parent_id">
+                                        <option value="">None (Top-level)</option>
+                                        <!-- Options will be loaded dynamically -->
+                                    </select>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Save Category</button>
+                            </form>
+                        </div>
+                    </div>
+
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <script type="module" src="../../main.js"></script>
+    <script type="module" src="../../assets/js/pages/admin/categories.js"></script>
 </body>
 </html>

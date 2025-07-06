@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings - Local Shopping Web-App</title>
+    <link rel="stylesheet" href="../../assets/css/main.css">
+    <link rel="stylesheet" href="../../assets/css/components.css">
+    <link rel="stylesheet" href="../../assets/css/responsive.css">
+    <link rel="stylesheet" href="../../assets/css/themes.css">
+</head>
+<body>
+    <div id="app-content">
+        <div class="settings-page-container container">
+            <h2>Settings</h2>
+
+            <div class="settings-tabs">
+                <button class="tab-button active" data-tab="account">Account Management</button>
+                <button class="tab-button" data-tab="notifications">Notifications</button>
+                <button class="tab-button" data-tab="privacy">Privacy</button>
+                <button class="tab-button" data-tab="payment">Payment Settings</button>
+                <button class="tab-button" data-tab="security">Security</button>
+                <button class="tab-button" data-tab="danger-zone">Danger Zone</button>
+            </div>
+
+            <div id="account" class="tab-content active">
+                <h3>Account Management</h3>
+                <form id="account-form" class="settings-form">
+                    <div class="form-group">
+                        <label for="current-password">Current Password</label>
+                        <input type="password" id="current-password" name="current_password">
+                    </div>
+                    <div class="form-group">
+                        <label for="new-password">New Password</label>
+                        <input type="password" id="new-password" name="new_password">
+                    </div>
+                    <div class="form-group">
+                        <label for="confirm-new-password">Confirm New Password</label>
+                        <input type="password" id="confirm-new-password" name="confirm_new_password">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Change Password</button>
+                </form>
+
+                <form id="email-username-form" class="settings-form">
+                    <div class="form-group">
+                        <label for="new-email">New Email</label>
+                        <input type="email" id="new-email" name="new_email">
+                    </div>
+                    <div class="form-group">
+                        <label for="new-username">New Username</label>
+                        <input type="text" id="new-username" name="new_username">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Update Email/Username</button>
+                </form>
+            </div>
+
+            <div id="notifications" class="tab-content">
+                <h3>Notification Preferences</h3>
+                <form id="notifications-form" class="settings-form">
+                    <div class="form-group switch-group">
+                        <label for="email-alerts">Email Alerts</label>
+                        <label class="switch">
+                            <input type="checkbox" id="email-alerts" name="email_alerts" checked>
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                    <div class="form-group switch-group">
+                        <label for="sms-alerts">SMS Alerts</label>
+                        <label class="switch">
+                            <input type="checkbox" id="sms-alerts" name="sms_alerts">
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Save Preferences</button>
+                </form>
+            </div>
+
+            <div id="privacy" class="tab-content">
+                <h3>Privacy Settings</h3>
+                <form id="privacy-form" class="settings-form">
+                    <div class="form-group switch-group">
+                        <label for="data-sharing">Share Data for Analytics</label>
+                        <label class="switch">
+                            <input type="checkbox" id="data-sharing" name="data_sharing" checked>
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                    <div class="form-group switch-group">
+                        <label for="marketing-opt-in">Receive Marketing Emails</label>
+                        <label class="switch">
+                            <input type="checkbox" id="marketing-opt-in" name="marketing_opt_in">
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Save Privacy Settings</button>
+                </form>
+            </div>
+
+            <div id="payment" class="tab-content">
+                <h3>Payment Settings</h3>
+                <p>Manage your payment methods here. (Future Integration)</p>
+                <button class="btn btn-primary" disabled>Add Payment Method</button>
+            </div>
+
+            <div id="security" class="tab-content">
+                <h3>Security Settings</h3>
+                <form id="security-form" class="settings-form">
+                    <div class="form-group">
+                        <label for="session-timeout">Session Timeout (minutes)</label>
+                        <input type="number" id="session-timeout" name="session_timeout" value="30" min="5" max="120">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Save Security Settings</button>
+                </form>
+            </div>
+
+            <div id="danger-zone" class="tab-content">
+                <h3>Danger Zone</h3>
+                <p>Proceed with caution. These actions are irreversible.</p>
+                <button id="delete-account-btn" class="btn btn-error">Delete My Account</button>
+            </div>
+
+        </div>
+    </div>
+
+    <script type="module" src="../../main.js"></script>
+    <script type="module" src="../../assets/js/pages/settings.js"></script>
+</body>
+</html>

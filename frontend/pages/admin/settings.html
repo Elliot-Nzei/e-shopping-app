@@ -3,10 +3,111 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Settings</title>
+    <title>Admin Settings - Local Shopping Web-App</title>
     <link rel="stylesheet" href="../../assets/css/main.css">
+    <link rel="stylesheet" href="../../assets/css/components.css">
+    <link rel="stylesheet" href="../../assets/css/responsive.css">
+    <link rel="stylesheet" href="../../assets/css/themes.css">
 </head>
 <body>
-    <h1>Admin Settings</h1>
+    <div id="app-content">
+        <div class="admin-page-container container">
+            <aside class="dashboard-sidebar">
+                <nav>
+                    <ul>
+                        <li><a href="/admin/dashboard.html" class="sidebar-link" data-internal-link data-section="overview">Overview</a></li>
+                        <li><a href="/admin/users.html" class="sidebar-link" data-internal-link data-section="users">Users</a></li>
+                        <li><a href="/admin/sellers.html" class="sidebar-link" data-internal-link data-section="sellers">Sellers</a></li>
+                        <li><a href="/admin/products.html" class="sidebar-link" data-internal-link data-section="products">Products</a></li>
+                        <li><a href="/admin/orders.html" class="sidebar-link" data-internal-link data-section="orders">Orders</a></li>
+                        <li><a href="/admin/categories.html" class="sidebar-link" data-internal-link data-section="categories">Categories</a></li>
+                        <li><a href="/admin/analytics.html" class="sidebar-link" data-internal-link data-section="analytics">Analytics</a></li>
+                        <li><a href="/admin/settings.html" class="sidebar-link active" data-internal-link data-section="settings">Settings</a></li>
+                    </ul>
+                </nav>
+            </aside>
+
+            <main class="dashboard-main-content">
+                <section id="admin-settings" class="dashboard-section active">
+                    <h2>Admin Settings</h2>
+
+                    <div class="settings-tabs">
+                        <button class="tab-button active" data-tab="roles-permissions">Roles & Permissions</button>
+                        <button class="tab-button" data-tab="system-settings">System Settings</button>
+                        <button class="tab-button" data-tab="api-integrations">API & Integrations</button>
+                        <button class="tab-button" data-tab="security-settings">Security</button>
+                    </div>
+
+                    <div id="roles-permissions" class="tab-content active">
+                        <h3>User Roles & Permissions Management</h3>
+                        <form id="roles-permissions-form" class="settings-form">
+                            <div class="form-group">
+                                <label for="user-role">Select User Role:</label>
+                                <select id="user-role" name="role">
+                                    <option value="master">MASTER (Super-Admin)</option>
+                                    <option value="submaster">SUB_MASTER (Delegated Admin)</option>
+                                    <option value="seller">SELLER (Shop Owner)</option>
+                                    <option value="vendor">VENDOR (Product Supplier)</option>
+                                    <option value="user">USER (Buyer)</option>
+                                    <option value="guest">GUEST (Anonymous)</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="permissions">Permissions (comma-separated)</label>
+                                <input type="text" id="permissions" name="permissions" placeholder="e.g., user:read, product:edit">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Update Role Permissions</button>
+                        </form>
+                    </div>
+
+                    <div id="system-settings" class="tab-content">
+                        <h3>System-Wide Settings</h3>
+                        <form id="system-settings-form" class="settings-form">
+                            <div class="form-group switch-group">
+                                <label for="site-status">Site Status (Online/Maintenance)</label>
+                                <label class="switch">
+                                    <input type="checkbox" id="site-status" name="site_status" checked>
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+                            <div class="form-group switch-group">
+                                <label for="maintenance-mode">Enable Maintenance Mode</label>
+                                <label class="switch">
+                                    <input type="checkbox" id="maintenance-mode" name="maintenance_mode">
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Save System Settings</button>
+                        </form>
+                    </div>
+
+                    <div id="api-integrations" class="tab-content">
+                        <h3>API Keys & Integrations</h3>
+                        <p>Manage API keys for external services and integrations.</p>
+                        <button class="btn btn-primary" disabled>Add New API Key</button>
+                    </div>
+
+                    <div id="security-settings" class="tab-content">
+                        <h3>Security Configurations</h3>
+                        <form id="security-config-form" class="settings-form">
+                            <div class="form-group">
+                                <label for="password-policy">Password Policy (Min Length)</label>
+                                <input type="number" id="password-policy" name="password_min_length" value="8" min="6" max="32">
+                            </div>
+                            <div class="form-group">
+                                <label for="session-timeout-admin">Admin Session Timeout (minutes)</label>
+                                <input type="number" id="session-timeout-admin" name="admin_session_timeout" value="60" min="10" max="360">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Save Security Config</button>
+                        </form>
+                    </div>
+
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <script type="module" src="../../main.js"></script>
+    <script type="module" src="../../assets/js/pages/admin/settings.js"></script>
 </body>
 </html>

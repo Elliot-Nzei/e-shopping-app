@@ -3,10 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Seller Products</title>
+    <title>Seller Products - Local Shopping Web-App</title>
     <link rel="stylesheet" href="../../assets/css/main.css">
+    <link rel="stylesheet" href="../../assets/css/components.css">
+    <link rel="stylesheet" href="../../assets/css/responsive.css">
+    <link rel="stylesheet" href="../../assets/css/themes.css">
 </head>
 <body>
-    <h1>Seller Products</h1>
+    <div id="app-content">
+        <div class="seller-products-container container">
+            <h2>My Products</h2>
+
+            <div class="filters-search-section">
+                <div class="form-group">
+                    <label for="product-category-filter">Category:</label>
+                    <select id="product-category-filter" name="category">
+                        <option value="all">All Categories</option>
+                        <!-- Categories will be loaded dynamically -->
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="product-status-filter">Status:</label>
+                    <select id="product-status-filter" name="status">
+                        <option value="all">All Statuses</option>
+                        <option value="active">Active</option>
+                        <option value="inactive">Inactive</option>
+                        <option value="draft">Draft</option>
+                    </select>
+                </div>
+                <div class="form-group search-group">
+                    <label for="product-search">Search Products:</label>
+                    <input type="text" id="product-search" name="search" placeholder="Search by name or ID">
+                </div>
+                <button class="btn btn-primary" id="add-new-product-btn">Add New Product</button>
+            </div>
+
+            <div id="seller-products-grid" class="product-grid">
+                <!-- Product cards/table rows will be loaded here by JavaScript -->
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/200" alt="Product Image" class="product-image">
+                    <div class="product-info">
+                        <h3>Product Name A</h3>
+                        <p class="product-price">₦10,000</p>
+                        <p class="product-stock">Stock: 50</p>
+                        <p class="product-status status-active">Active</p>
+                        <div class="product-actions">
+                            <button class="btn btn-secondary btn-sm edit-product-btn">Edit</button>
+                            <button class="btn btn-error btn-sm delete-product-btn">Delete</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/200" alt="Product Image" class="product-image">
+                    <div class="product-info">
+                        <h3>Product Name B</h3>
+                        <p class="product-price">₦25,000</p>
+                        <p class="product-stock">Stock: 0</p>
+                        <p class="product-status status-inactive">Inactive</p>
+                        <div class="product-actions">
+                            <button class="btn btn-secondary btn-sm edit-product-btn">Edit</button>
+                            <button class="btn btn-error btn-sm delete-product-btn">Delete</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="seller-products-pagination" class="pagination-container"></div>
+
+        </div>
+    </div>
+
+    <script type="module" src="../../main.js"></script>
+    <script type="module" src="../../assets/js/pages/seller/products.js"></script>
 </body>
 </html>
